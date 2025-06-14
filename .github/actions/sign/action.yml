@@ -24,6 +24,7 @@ runs:
     - name: Configure AWS credentials
       id: configure-aws
       uses: aws-actions/configure-aws-credentials@v4
+      continue-on-error: true
       with:
         role-to-assume: ${{ inputs.AWS_ROLE_ARN }}
         role-session-name: almalinux-container-signing-${{ github.run_id }}
