@@ -32,6 +32,6 @@ runs:
         role-duration-seconds: 900  # 15 minutes, the minimum
 
     - name: Sign Image with KMS
-      if: ${{ env.AWS_DEFAULT_REGION != '' }}
+      if: ${{ env.AWS_SESSION_TOKEN != '' }}
       shell: bash
       run: cosign sign --yes --key awskms:///alias/${{ inputs.KMS_KEY_ID }} ${{ inputs.image-ref }}
